@@ -9,6 +9,8 @@ body {
   color: white;
 }
 
+/* 헤더 */
+
 header {
   position: fixed;
   display: flex;
@@ -33,10 +35,10 @@ header {
   }
 
   ul {
-    display: flex;
     list-style: none;
-    padding: 0;
+    display: flex;
     gap: 10px;
+    padding: 0;
     font-size: 0.725rem;
 
     li {
@@ -54,6 +56,8 @@ header {
     border-radius: 5px;
   }
 }
+
+/* 홈 배너 */
 
 main {
   position: relative;
@@ -101,5 +105,54 @@ main {
         width: 2.2rem;
       }
     }
+  }
+}
+
+/* 무한 배너 */
+
+section {
+  padding: 0 2.5rem;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    margin-bottom: 0.25rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+}
+
+.infinite-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 2.5rem;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    padding: 0;
+    animation: roll 15s linear infinite;
+    &.banner-list clone {
+      animation-delay: 15s;
+    }
+
+    img {
+      width: 341px;
+      height: 192px;
+      flex-shrink: 0;
+      border-radius: 5px;
+    }
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
