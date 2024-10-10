@@ -18,7 +18,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem 2.5rem;
+  padding: 1rem 3rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5) 20%, transparent);
   z-index: 1;
 }
@@ -116,8 +116,8 @@ main {
 /* 무한 배너 */
 
 section {
-  padding: 0 2.5rem;
   margin-bottom: 2.5rem;
+  padding: 0 3rem;
 
   h2 {
     margin-bottom: 0.25rem;
@@ -173,19 +173,18 @@ section {
 .scroll-view {
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 2.5rem;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 
   ul {
     list-style: none;
     display: flex;
     gap: 2.5rem;
     padding: 0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     img {
       width: 210px;
@@ -193,5 +192,22 @@ section {
       flex-shrink: 0;
       border-radius: 5px;
     }
+  }
+
+  a {
+    text-decoration-line: none;
+    display: flex;
+    justify-content: center;
+    width: 3rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .scroll-left {
+    margin-left: -3rem;
+  }
+
+  .scroll-right {
+    margin-right: -3rem;
   }
 }
