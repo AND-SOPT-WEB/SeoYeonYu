@@ -1,5 +1,6 @@
 body {
   background-color: whitesmoke;
+  --babyblue: rgb(218, 236, 255);
 }
 
 header {
@@ -16,4 +17,46 @@ header {
   }
 }
 
+section {
+  margin: 0 auto;
+  width: 60%;
 
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+}
+
+.table-button {
+  display: flex;
+  width: fit-content;
+  margin: 0 0 0.5rem auto;
+  gap: 0.5rem;
+
+  button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--babyblue);
+    cursor: pointer;
+  }
+}
+
+.table-container {
+  width: 100%;
+  background-color: white;
+  border: 0.125rem solid var(--babyblue);
+
+  th {
+    background-color: var(--babyblue);
+    padding: 0.5rem;
+  }
+
+  td {
+    text-align: center;
+    padding: 0.375rem;
+    border: 0.125rem solid var(--babyblue);
+
+    a {
+      color: black;
+    }
+  }
+}
