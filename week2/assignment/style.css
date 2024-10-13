@@ -1,0 +1,19 @@
+body {
+  background-color: whitesmoke;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+
+  h1 {
+    text-align: center;
+  }
+
+  span {
+    text-align: end;
+  }
+}
+
+
