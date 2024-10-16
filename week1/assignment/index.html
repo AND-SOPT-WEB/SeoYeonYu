@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="./assets/favicon.ico" />
     <link
@@ -30,72 +31,78 @@
       </div>
     </header>
 
-    <main>
-      <img class="banner-logo" src="./assets/background-logo.webp" />
-      <div>
+    <section class="home-banner">
+      <img
+        class="banner-logo"
+        src="./assets/background-logo.webp"
+        alt="banner logo"
+      />
+      <img
+        class="banner-background"
+        src="./assets/background.jpg"
+        alt="banner background"
+      />
+      <div class="banner_content">
         <span
           >맛 하나는 최고라고 평가받는 재야의 고수 ‘흑수저’ 셰프들이 대한민국
           최고의 스타 셰프 ‘백수저’들에게 도전장을 내밀며 치열하게 맞붙는
           100인의 요리 계급 전쟁</span
         >
-        <button
-          type="button"
-          onclick="window.open('https://www.netflix.com/browse?jbv=81728365')"
-        >
-          <img src="./assets/media-play.png" alt="media play btn" />
-          재생
+        <button>
+          <a href="https://www.netflix.com/browse?jbv=81728365" target="_blank">
+            <img src="./assets/media-play.png" alt="media play btn" />
+            재생
+          </a>
         </button>
       </div>
+    </section>
+
+    <main>
+      <section class="infinite-banner-section">
+        <h2>회원님을 위해 엄선한 오늘의 콘텐츠</h2>
+        <div class="infinite-banner">
+          <ul>
+            <li><img src="./assets/contents/content01.jpeg" /></li>
+            <li><img src="./assets/contents/content02.jpeg" /></li>
+            <li><img src="./assets/contents/content03.jpeg" /></li>
+            <li><img src="./assets/contents/content04.jpeg" /></li>
+            <li><img src="./assets/contents/content05.jpeg" /></li>
+            <li><img src="./assets/contents/content06.jpeg" /></li>
+            <li><img src="./assets/contents/content08.jpeg" /></li>
+            <li><img src="./assets/contents/content09.jpeg" /></li>
+          </ul>
+          <ul aria-hidden class="banner-list-clone">
+            <li><img src="./assets/contents/content01.jpeg" /></li>
+            <li><img src="./assets/contents/content02.jpeg" /></li>
+            <li><img src="./assets/contents/content03.jpeg" /></li>
+            <li><img src="./assets/contents/content04.jpeg" /></li>
+            <li><img src="./assets/contents/content05.jpeg" /></li>
+            <li><img src="./assets/contents/content06.jpeg" /></li>
+            <li><img src="./assets/contents/content08.jpeg" /></li>
+            <li><img src="./assets/contents/content09.jpeg" /></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="scroll-view-section">
+        <h2>오늘 대한민국의 TOP 10 사진</h2>
+        <div class="scroll-view">
+          <a href="#scroll-left"><i class="fa-solid fa-chevron-left"></i></a>
+          <ul>
+            <li id="scroll-left"><img src="./assets/photo/photo01.jpeg" /></li>
+            <li><img src="./assets/photo/photo02.jpeg" /></li>
+            <li><img src="./assets/photo/photo03.jpeg" /></li>
+            <li><img src="./assets/photo/photo04.jpeg" /></li>
+            <li><img src="./assets/photo/photo05.jpeg" /></li>
+            <li><img src="./assets/photo/photo06.jpeg" /></li>
+            <li><img src="./assets/photo/photo07.jpeg" /></li>
+            <li><img src="./assets/photo/photo08.jpeg" /></li>
+            <li><img src="./assets/photo/photo09.jpeg" /></li>
+            <li id="scroll-right"><img src="./assets/photo/photo10.jpeg" /></li>
+          </ul>
+          <a href="#scroll-right"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </section>
     </main>
-
-    <section>
-      <h2>회원님을 위해 엄선한 오늘의 콘텐츠</h2>
-      <div class="infinite-banner">
-        <ul>
-          <li><img src="./assets/contents/content01.jpeg" /></li>
-          <li><img src="./assets/contents/content02.jpeg" /></li>
-          <li><img src="./assets/contents/content03.jpeg" /></li>
-          <li><img src="./assets/contents/content04.jpeg" /></li>
-          <li><img src="./assets/contents/content05.jpeg" /></li>
-          <li><img src="./assets/contents/content06.jpeg" /></li>
-          <li><img src="./assets/contents/content08.jpeg" /></li>
-          <li><img src="./assets/contents/content09.jpeg" /></li>
-        </ul>
-        <ul class="banner-list clone">
-          <li><img src="./assets/contents/content01.jpeg" /></li>
-          <li><img src="./assets/contents/content02.jpeg" /></li>
-          <li><img src="./assets/contents/content03.jpeg" /></li>
-          <li><img src="./assets/contents/content04.jpeg" /></li>
-          <li><img src="./assets/contents/content05.jpeg" /></li>
-          <li><img src="./assets/contents/content06.jpeg" /></li>
-          <li><img src="./assets/contents/content08.jpeg" /></li>
-          <li><img src="./assets/contents/content09.jpeg" /></li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>오늘 대한민국의 TOP 10 사진</h2>
-      <div class="scroll-view">
-        <a href="#scroll-left" class="scroll-left"
-          ><i class="fa-solid fa-chevron-left"></i
-        ></a>
-        <ul>
-          <li id="scroll-left"><img src="./assets/photo/photo01.jpeg" /></li>
-          <li><img src="./assets/photo/photo02.jpeg" /></li>
-          <li><img src="./assets/photo/photo03.jpeg" /></li>
-          <li><img src="./assets/photo/photo04.jpeg" /></li>
-          <li><img src="./assets/photo/photo05.jpeg" /></li>
-          <li><img src="./assets/photo/photo06.jpeg" /></li>
-          <li><img src="./assets/photo/photo07.jpeg" /></li>
-          <li><img src="./assets/photo/photo08.jpeg" /></li>
-          <li><img src="./assets/photo/photo09.jpeg" /></li>
-          <li id="scroll-right"><img src="./assets/photo/photo10.jpeg" /></li>
-        </ul>
-        <a href="#scroll-right" class="scroll-right"
-          ><i class="fa-solid fa-chevron-right"></i
-        ></a>
-      </div>
-    </section>
   </body>
 </html>

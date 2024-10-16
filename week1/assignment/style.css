@@ -1,9 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
   background-color: #141414;
   font-family: "Noto Sans KR", sans-serif;
   color: white;
@@ -14,7 +9,6 @@ body {
 header {
   position: fixed;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -27,23 +21,20 @@ header {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+.header-navigation img {
+  width: 6rem;
+  height: 100%;
+  cursor: pointer;
+}
+.header-navigation ul {
+  display: flex;
+  gap: 0.625rem;
+  padding: 0;
+  font-size: 0.725rem;
 
-  img {
-    width: 6rem;
-    height: 100%;
+  li {
     cursor: pointer;
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 10px;
-    padding: 0;
-    font-size: 0.725rem;
-
-    li {
-      cursor: pointer;
-    }
   }
 }
 
@@ -59,104 +50,103 @@ header {
 
 /* 홈 배너 */
 
-main {
+section {
+  margin-bottom: 2.5rem;
+}
+
+.home-banner {
   position: relative;
   width: 100%;
-  height: 38rem;
-  background-image: linear-gradient(rgba(20, 20, 20, 0), rgba(20, 20, 20, 1)),
-    url(./assets/background.jpg);
-  background-size: cover;
+  height: 36rem;
+}
 
-  .banner-logo {
-    position: absolute;
-    top: 25rem;
-    left: 5rem;
-    width: 20rem;
+.banner-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-logo {
+  position: absolute;
+  top: 25rem;
+  left: 5rem;
+  width: 20rem;
+  pointer-events: none;
+}
+
+.banner_content {
+  position: absolute;
+  right: 5rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+}
+.banner_content span {
+  width: 24rem;
+  text-align: end;
+  line-height: 150%;
+  word-break: keep-all;
+}
+.banner_content button {
+  width: fit-content;
+  padding: 0.25rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
   }
+}
+.banner_content button a {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #141414;
 
-  div {
-    position: absolute;
-    right: 5rem;
-    bottom: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: 1rem;
-
-    span {
-      width: 24rem;
-      text-align: end;
-      line-height: 150%;
-      word-break: keep-all;
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      width: fit-content;
-      padding: 4px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.8);
-      }
-
-      img {
-        width: 2.2rem;
-      }
-    }
+  img {
+    width: 2.2rem;
   }
 }
 
 /* 무한 배너 */
 
-section {
-  margin-bottom: 2.5rem;
-  padding: 0 3rem;
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
 
-  h2 {
-    margin-bottom: 0.25rem;
-    font-size: 1.3rem;
-    font-weight: 400;
-  }
+.infinite-banner-section,
+.scroll-view-section h2 {
+  padding: 0 3rem;
 }
 
 .infinite-banner {
-  position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 2.5rem;
   overflow: hidden;
+}
+.infinite-banner ul {
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+  will-change: transform;
+  animation: roll 15s linear infinite;
+}
+.infinite-banner ul img {
+  width: 21rem;
+  height: 15rem;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-    padding: 0;
-    animation: roll 15s linear infinite;
-    &.banner-list clone {
-      animation-delay: 15s;
-    }
-
-    img {
-      width: 341px;
-      height: 240px;
-      flex-shrink: 0;
-      border-radius: 5px;
-      object-fit: cover;
-      transition-duration: 0.3s;
-    }
-
-    img:hover {
-      transform: scale(1.15, 1.15);
-      transition-duration: 0.5s;
-    }
+  &:hover {
+    transform: scale(1.15);
   }
 }
 
@@ -174,42 +164,30 @@ section {
 .scroll-view {
   display: flex;
   align-items: center;
-
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-    padding: 0;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    img {
-      width: 210px;
-      height: 298px;
-      flex-shrink: 0;
-      border-radius: 5px;
-      object-fit: cover;
-    }
+  width: 100%;
+}
+.scroll-view ul {
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 
-  a {
-    text-decoration-line: none;
-    display: flex;
-    justify-content: center;
-    width: 3rem;
-    color: #fff;
-    flex-shrink: 0;
+  img {
+    width: 13.125rem;
+    height: 18.625rem;
+    border-radius: 5px;
+    object-fit: cover;
   }
-
-  .scroll-left {
-    margin-left: -3rem;
-  }
-
-  .scroll-right {
-    margin-right: -3rem;
-  }
+}
+.scroll-view a {
+  display: flex;
+  justify-content: center;
+  width: 3rem;
+  color: #fff;
+  flex-shrink: 0;
 }
