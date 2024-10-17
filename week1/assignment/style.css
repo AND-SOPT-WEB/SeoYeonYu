@@ -1,0 +1,193 @@
+body {
+  background-color: #141414;
+  font-family: "Noto Sans KR", sans-serif;
+  color: white;
+}
+
+/* 헤더 */
+
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 3rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 20%, transparent);
+  z-index: 1;
+}
+
+.header-navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.header-navigation img {
+  width: 6rem;
+  height: 100%;
+  cursor: pointer;
+}
+.header-navigation ul {
+  display: flex;
+  gap: 0.625rem;
+  padding: 0;
+  font-size: 0.725rem;
+
+  li {
+    cursor: pointer;
+  }
+}
+
+.header-icon {
+  display: flex;
+  gap: 1rem;
+
+  img {
+    width: 2rem;
+    border-radius: 5px;
+  }
+}
+
+/* 홈 배너 */
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+.home-banner {
+  position: relative;
+  width: 100%;
+  height: 36rem;
+}
+
+.banner-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-logo {
+  position: absolute;
+  top: 25rem;
+  left: 5rem;
+  width: 20rem;
+  pointer-events: none;
+}
+
+.banner_content {
+  position: absolute;
+  right: 5rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+}
+.banner_content span {
+  width: 24rem;
+  text-align: end;
+  line-height: 150%;
+  word-break: keep-all;
+}
+.banner_content button {
+  width: fit-content;
+  padding: 0.25rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+.banner_content button a {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #141414;
+
+  img {
+    width: 2.2rem;
+  }
+}
+
+/* 무한 배너 */
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.infinite-banner-section,
+.scroll-view-section h2 {
+  padding: 0 3rem;
+}
+
+.infinite-banner {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.infinite-banner ul {
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+  will-change: transform;
+  animation: roll 15s linear infinite;
+}
+.infinite-banner ul img {
+  width: 21rem;
+  height: 15rem;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 스크롤 뷰 */
+
+.scroll-view {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.scroll-view ul {
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  img {
+    width: 13.125rem;
+    height: 18.625rem;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+}
+.scroll-view a {
+  display: flex;
+  justify-content: center;
+  width: 3rem;
+  color: #fff;
+  flex-shrink: 0;
+}
