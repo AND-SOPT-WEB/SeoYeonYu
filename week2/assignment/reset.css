@@ -127,7 +127,25 @@ table {
   box-sizing: border-box;
 }
 
+html,
+body {
+  font-size: 62.5%;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --babyblue: rgb(218, 236, 255);
+}
+
 button {
   border: none;
   outline: none;
+}
+
+a {
+  color: black;
 }
