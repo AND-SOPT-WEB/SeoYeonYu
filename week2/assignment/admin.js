@@ -20,6 +20,9 @@ function renderTable() {
   });
 }
 
+renderTable();
+
+// 전체 선택하기
 const selectBtn = document.getElementById("select-btn");
 selectBtn.addEventListener("click", selectAll);
 
@@ -31,6 +34,7 @@ function selectAll() {
   });
 }
 
+// 선택 삭제하기
 const delBtn = document.getElementById("del-btn");
 delBtn.addEventListener("click", deleteRow);
 
@@ -49,4 +53,55 @@ function deleteRow() {
   renderTable();
 }
 
-renderTable();
+// 데이터 추가 모달 열고 닫기
+const modal = document.querySelector(".modal-background");
+const modalOpen = document.querySelector("#add-btn");
+const modalClose = document.querySelector("#close-btn");
+
+function openModal() {
+  modal.style.display = "flex";
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+modalOpen.addEventListener("click", openModal);
+modalClose.addEventListener("click", closeModal);
+
+// 데이터 추가하기
+const modalForm = document.querySelector(".modal-body");
+
+modalForm.addEventListener("submit", () => {
+  const nameKor = document.getElementById("nameKor")?.value.trim();
+  const nameEng = document.getElementById("nameEng")?.value.trim();
+  const github = document.getElementById("github")?.value.trim();
+  const gender = document.getElementById("gender")?.value;
+  const role = document.getElementById("role")?.value;
+  const firstGroup = parseInt(document.getElementById("firstGroup")?.value, 10);
+  const secondGroup = parseInt(document.getElementById("secondGroup")?.value, 10);
+
+  if (!nameKor || !nameEng || !github || !gender || !role || !firstGroup || !secondGroup) {
+    alert("모든 항목을 입력해주세요 :(");
+    return;
+  }
+
+  const newMember = {
+    id: Date.now(),
+    name: nameKor,
+    englishName: nameEng,
+    github: github,
+    gender: gender,
+    role: role,
+    firstWeekGroup: firstGroup,
+    secondWeekGroup: secondGroup,
+  };
+
+  membersData.push(newMember);
+  localStorage.setItem("membersData", JSON.stringify(membersData));
+
+  modalForm.reset();
+  alert("데이터가 성공적으로 추가되었습니다 :)");
+  closeModal();
+  renderTable();
+});

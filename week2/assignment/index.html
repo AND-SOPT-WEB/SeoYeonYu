@@ -21,7 +21,7 @@
     <section>
       <div class="table-button-container">
         <button id="del-btn">선택 삭제</button>
-        <button>추가</button>
+        <button id="add-btn">추가</button>
       </div>
 
       <table class="table-container">
@@ -40,6 +40,45 @@
         <tbody id="table-body"></tbody>
       </table>
     </section>
+
+    <div class="modal-background">
+      <div class="modal">
+        <div class="modal-header">
+          <h5>새 멤버 추가</h5>
+          <i id="close-btn" class="fa-solid fa-xmark"></i>
+        </div>
+
+        <form class="modal-body">
+          <label for="nameKor">이름</label>
+          <input id="nameKor" placeholder="이름을 입력하세요" />
+          <label for="nameEng">영문 이름</label>
+          <input id="nameEng" placeholder="영문 이름을 입력하세요" />
+          <label for="github">Github ID</label>
+          <input id="github" placeholder="Github ID를 입력하세요" />
+
+          <label for="gender">성별</label>
+          <select id="gender">
+            <option selected disabled>성별 선택</option>
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+          </select>
+
+          <label for="role">역할</label>
+          <select id="role">
+            <option selected disabled>OB / YB 선택</option>
+            <option value="OB">OB</option>
+            <option value="YB">YB</option>
+          </select>
+
+          <label for="firstGroup">1주차 금잔디조</label>
+          <input type="number" id="firstGroup" placeholder="1주차 금잔디조를 입력하세요 (1~9)" />
+          <label for="secondGroup">2주차 금잔디조</label>
+          <input type="number" id="secondGroup" placeholder="2주차 금잔디조를 입력하세요 (1~9)" />
+
+          <button id="submit-btn">추가</button>
+        </form>
+      </div>
+    </div>
 
     <script type="module" src="admin.js"></script>
     <script type="module" src="data.js"></script>

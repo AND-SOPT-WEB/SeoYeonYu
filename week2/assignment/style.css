@@ -53,3 +53,51 @@ section {
   text-align: center;
   border: 2px solid var(--babyblue);
 }
+
+/* 데이터 추가 모달 */
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  width: 60%;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+}
+.modal-header i {
+  cursor: pointer;
+}
+
+.modal-body {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.modal-body label {
+  font-weight: 700;
+}
+.modal-body button {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
