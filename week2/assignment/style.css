@@ -17,13 +17,75 @@ header span {
 }
 
 section {
-  margin: 0 auto;
-  width: 60%;
+  margin: 2rem auto;
+  width: 70%;
 
   @media (max-width: 1024px) {
     width: 80%;
   }
 }
+
+/* 필터링 섹션 */
+
+.filtering-section {
+  padding: 1rem;
+  background-color: var(--babyblue);
+}
+.filtering-section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.filtering-section li:nth-of-type(3),
+.filtering-section li:nth-of-type(4) {
+  display: grid;
+  gap: 1rem;
+}
+.filtering-section li:nth-of-type(3) {
+  grid-template-columns: repeat(3, 1fr);
+}
+.filtering-section li:nth-of-type(4) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.filtering-section label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  background-color: whitesmoke;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.filtering-input-box {
+  display: flex;
+  width: 100%;
+  height: 3.5rem;
+}
+
+.filtering-section input,
+.filtering-section select {
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+}
+
+.filtering-btn-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  height: 3rem;
+}
+.filtering-btn-container button {
+  width: 100%;
+  background-color: var(--bluegray);
+  color: white;
+  border-radius: 5px;
+}
+
+/* 테이블 섹션 */
 
 .table-button-container {
   display: flex;
@@ -33,10 +95,9 @@ section {
 }
 .table-button-container button {
   padding: 0.8rem;
-  border-radius: 10%;
+  border-radius: 5px;
   background-color: var(--babyblue);
   font-size: 1.2rem;
-  cursor: pointer;
 }
 
 .table-container {
@@ -99,5 +160,4 @@ section {
   background-color: black;
   color: white;
   border-radius: 5px;
-  cursor: pointer;
 }

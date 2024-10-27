@@ -139,13 +139,20 @@ body {
 
 :root {
   --babyblue: rgb(218, 236, 255);
+  --bluegray: rgb(131, 160, 194);
 }
 
 button {
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 a {
   color: black;
+}
+
+input,
+select {
+  outline: none;
 }
