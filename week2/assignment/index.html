@@ -103,31 +103,39 @@
         </div>
 
         <form class="modal-body">
-          <label for="nameKor">이름</label>
-          <input id="nameKor" placeholder="이름을 입력하세요" autocomplete="off" />
-          <label for="nameEng">영문 이름</label>
-          <input id="nameEng" placeholder="영문 이름을 입력하세요" autocomplete="off" />
-          <label for="github">Github ID</label>
-          <input id="github" placeholder="Github ID를 입력하세요" autocomplete="off" />
+          <label for="modalNameKor">이름</label>
+          <input id="modalNameKor" placeholder="이름을 입력하세요" autocomplete="off" />
+          <label for="modalNameEng">영문 이름</label>
+          <input id="modalNameEng" placeholder="영문 이름을 입력하세요" autocomplete="off" />
+          <label for="modalGithub">Github ID</label>
+          <input id="modalGithub" placeholder="Github ID를 입력하세요" autocomplete="off" />
 
-          <label for="gender">성별</label>
-          <select id="gender">
+          <label for="modalGender">성별</label>
+          <select id="modalGender">
             <option selected disabled>성별 선택</option>
             <option value="male">남성</option>
             <option value="female">여성</option>
           </select>
 
-          <label for="role">역할</label>
-          <select id="role">
+          <label for="modalRole">역할</label>
+          <select id="modalRole">
             <option selected disabled>OB / YB 선택</option>
             <option value="OB">OB</option>
             <option value="YB">YB</option>
           </select>
 
-          <label for="firstGroup">1주차 금잔디조</label>
-          <input type="number" id="firstGroup" placeholder="1주차 금잔디조를 입력하세요 (1~9)" />
-          <label for="secondGroup">2주차 금잔디조</label>
-          <input type="number" id="secondGroup" placeholder="2주차 금잔디조를 입력하세요 (1~9)" />
+          <label for="modalFirstGroup">1주차 금잔디조</label>
+          <input
+            type="number"
+            id="modalFirstGroup"
+            placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+          />
+          <label for="modalSecondGroup">2주차 금잔디조</label>
+          <input
+            type="number"
+            id="modalSecondGroup"
+            placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+          />
 
           <button id="submit-btn">추가</button>
         </form>

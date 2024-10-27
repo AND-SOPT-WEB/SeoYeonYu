@@ -128,13 +128,13 @@ modalClose.addEventListener("click", closeModal);
 const modalForm = document.querySelector(".modal-body");
 
 modalForm.addEventListener("submit", () => {
-  const nameKor = document.getElementById("nameKor")?.value.trim();
-  const nameEng = document.getElementById("nameEng")?.value.trim();
-  const github = document.getElementById("github")?.value.trim();
-  const gender = document.getElementById("gender")?.value;
-  const role = document.getElementById("role")?.value;
-  const firstGroup = parseInt(document.getElementById("firstGroup")?.value, 10);
-  const secondGroup = parseInt(document.getElementById("secondGroup")?.value, 10);
+  const nameKor = document.getElementById("modalNameKor")?.value.trim();
+  const nameEng = document.getElementById("modalNameEng")?.value.trim();
+  const github = document.getElementById("modalGithub")?.value.trim();
+  const gender = document.getElementById("modalGender")?.value;
+  const role = document.getElementById("modalRole")?.value;
+  const firstGroup = parseInt(document.getElementById("modalFirstGroup")?.value, 10);
+  const secondGroup = parseInt(document.getElementById("modalSecondGroup")?.value, 10);
 
   if (!nameKor || !nameEng || !github || !gender || !role || !firstGroup || !secondGroup) {
     alert("모든 항목을 입력해주세요 :(");
