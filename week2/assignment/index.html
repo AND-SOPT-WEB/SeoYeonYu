@@ -12,26 +12,28 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- 헤더 -->
     <header>
       <i class="fa-solid fa-bars"></i>
       <h1>회원 관리 페이지</h1>
       <span>AND SOPT WEB YB 유서연</span>
     </header>
 
+    <!-- 필터링 섹션 -->
     <section class="filtering-section">
       <ul>
         <li class="filtering-input-box">
           <label for="nameKor">이름</label>
-          <input id="nameKor" placeholder="이름을 입력하세요" />
+          <input id="nameKor" placeholder="이름을 입력하세요" autocomplete="off" />
         </li>
         <li class="filtering-input-box">
           <label for="nameEng">영문 이름</label>
-          <input id="nameEng" placeholder="영문 이름을 입력하세요" />
+          <input id="nameEng" placeholder="영문 이름을 입력하세요" autocomplete="off" />
         </li>
         <li>
           <div class="filtering-input-box">
             <label for="github">Github ID</label>
-            <input id="github" placeholder="Github ID를 입력하세요" />
+            <input id="github" placeholder="Github ID를 입력하세요" autocomplete="off" />
           </div>
           <div class="filtering-input-box">
             <label for="gender">성별</label>
@@ -68,6 +70,7 @@
       </div>
     </section>
 
+    <!-- 테이블 섹션 -->
     <section>
       <div class="table-button-container">
         <button id="del-btn">선택 삭제</button>
@@ -91,6 +94,7 @@
       </table>
     </section>
 
+    <!-- 데이터 추가 모달 -->
     <div class="modal-background">
       <div class="modal">
         <div class="modal-header">
@@ -100,11 +104,11 @@
 
         <form class="modal-body">
           <label for="nameKor">이름</label>
-          <input id="nameKor" placeholder="이름을 입력하세요" />
+          <input id="nameKor" placeholder="이름을 입력하세요" autocomplete="off" />
           <label for="nameEng">영문 이름</label>
-          <input id="nameEng" placeholder="영문 이름을 입력하세요" />
+          <input id="nameEng" placeholder="영문 이름을 입력하세요" autocomplete="off" />
           <label for="github">Github ID</label>
-          <input id="github" placeholder="Github ID를 입력하세요" />
+          <input id="github" placeholder="Github ID를 입력하세요" autocomplete="off" />
 
           <label for="gender">성별</label>
           <select id="gender">
