@@ -1,9 +1,10 @@
 const tableBody = document.getElementById("table-body");
 let membersData = JSON.parse(localStorage.getItem("membersData")) ?? [];
 
-function renderTable() {
+// 테이블 렌더링 함수
+function renderTable(data = membersData) {
   tableBody.innerHTML = "";
-  membersData.forEach((item) => {
+  data.forEach((item) => {
     let gender = item.gender === "male" ? "남자" : "여자";
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -20,7 +21,61 @@ function renderTable() {
   });
 }
 
-renderTable();
+// 데이터 필터링하기
+const nameKorFilter = document.getElementById("nameKor");
+const nameEngFilter = document.getElementById("nameEng");
+const githubFilter = document.getElementById("github");
+const genderFilter = document.getElementById("gender");
+const roleFilter = document.getElementById("role");
+const firstGroupFilter = document.getElementById("firstGroup");
+const secondGroupFilter = document.getElementById("secondGroup");
+const searchBtn = document.getElementById("filtering-search-btn");
+const resetBtn = document.getElementById("filtering-reset-btn");
+
+function filterTable() {
+  const filteredData = membersData.filter((item) => {
+    const nameKorMatch =
+      nameKorFilter.value.trim() === "" || item.name.includes(nameKorFilter.value);
+    const nameEngMatch =
+      nameEngFilter.value.trim() === "" || item.englishName.includes(nameEngFilter.value);
+    const githubMatch =
+      githubFilter.value.trim() === "" || item.github.includes(githubFilter.value);
+    const genderMatch = genderFilter.value === "성별 선택" || item.gender === genderFilter.value;
+    const roleMatch = roleFilter.value === "OB / YB 선택" || item.role === roleFilter.value;
+    const firstGroupMatch =
+      firstGroupFilter.value === "" || item.firstWeekGroup === parseInt(firstGroupFilter.value, 10);
+    const secondGroupMatch =
+      secondGroupFilter.value === "" ||
+      item.secondWeekGroup === parseInt(secondGroupFilter.value, 10);
+
+    return (
+      nameKorMatch &&
+      nameEngMatch &&
+      githubMatch &&
+      genderMatch &&
+      roleMatch &&
+      firstGroupMatch &&
+      secondGroupMatch
+    );
+  });
+
+  renderTable(filteredData);
+}
+
+searchBtn.addEventListener("click", filterTable);
+
+// 필터 초기화 버튼
+resetBtn.addEventListener("click", () => {
+  nameKorFilter.value = "";
+  nameEngFilter.value = "";
+  githubFilter.value = "";
+  genderFilter.value = "성별 선택";
+  roleFilter.value = "OB / YB 선택";
+  firstGroupFilter.value = "";
+  secondGroupFilter.value = "";
+
+  renderTable();
+});
 
 // 전체 선택하기
 const selectBtn = document.getElementById("select-btn");
@@ -105,3 +160,6 @@ modalForm.addEventListener("submit", () => {
   closeModal();
   renderTable();
 });
+
+// 초기 테이블 렌더링
+renderTable();
