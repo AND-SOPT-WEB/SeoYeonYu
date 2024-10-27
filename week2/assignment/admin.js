@@ -62,19 +62,11 @@ function filterTable() {
   renderTable(filteredData);
 }
 
-searchBtn.addEventListener("click", filterTable);
+const filterForm = document.getElementById("filtering-form");
 
-// 필터 초기화 버튼
-resetBtn.addEventListener("click", () => {
-  nameKorFilter.value = "";
-  nameEngFilter.value = "";
-  githubFilter.value = "";
-  genderFilter.value = "성별 선택";
-  roleFilter.value = "OB / YB 선택";
-  firstGroupFilter.value = "";
-  secondGroupFilter.value = "";
-
-  renderTable();
+filterForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  filterTable();
 });
 
 // 전체 선택하기
@@ -105,6 +97,7 @@ function deleteRow() {
 
   localStorage.setItem("membersData", JSON.stringify(membersData));
   selectBtn.checked = false;
+  alert("데이터가 성공적으로 삭제되었습니다 :)");
   renderTable();
 }
 
