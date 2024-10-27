@@ -109,20 +109,27 @@ function deleteRow() {
 }
 
 // 데이터 추가 모달 열고 닫기
-const modal = document.querySelector(".modal-background");
+const modalBackground = document.querySelector(".modal-background");
 const modalOpen = document.querySelector("#add-btn");
 const modalClose = document.querySelector("#close-btn");
 
 function openModal() {
-  modal.style.display = "flex";
+  modalBackground.style.display = "flex";
 }
 
 function closeModal() {
-  modal.style.display = "none";
+  modalBackground.style.display = "none";
 }
 
 modalOpen.addEventListener("click", openModal);
 modalClose.addEventListener("click", closeModal);
+
+// 백드롭 클릭 시 모달 닫기
+modalBackground.addEventListener("click", (e) => {
+  if (e.target === modalBackground) {
+    closeModal();
+  }
+});
 
 // 데이터 추가하기
 const modalForm = document.querySelector(".modal-body");
