@@ -1,0 +1,168 @@
+body {
+  background-color: whitesmoke;
+  font-size: 1.2rem;
+}
+
+/* 헤더 */
+
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1.5rem;
+  font-size: 1.5rem;
+}
+header h1 {
+  text-align: center;
+}
+header span {
+  text-align: end;
+}
+
+/* 섹션 */
+
+section {
+  margin: 2rem auto;
+  width: 70%;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+}
+
+/* 필터링 섹션 */
+
+.filtering-section {
+  padding: 1rem;
+  background-color: var(--babyblue);
+}
+.filtering-section ul,
+.filtering-section li:nth-of-type(3),
+.filtering-section li:nth-of-type(4) {
+  display: grid;
+  gap: 1rem;
+}
+.filtering-section li:nth-of-type(3) {
+  grid-template-columns: repeat(3, 1fr);
+}
+.filtering-section li:nth-of-type(4) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.filtering-input-box {
+  display: flex;
+  width: 100%;
+  height: 3.5rem;
+}
+
+.filtering-section label {
+  align-content: center;
+  text-align: center;
+  width: 10rem;
+  background-color: whitesmoke;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.filtering-section input,
+.filtering-section select {
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+}
+
+.filtering-btn-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  height: 3rem;
+}
+.filtering-btn-container button {
+  width: 100%;
+  background-color: var(--bluegray);
+  color: white;
+  border-radius: 5px;
+}
+
+/* 테이블 섹션 */
+
+.table-button-container {
+  display: flex;
+  width: fit-content;
+  margin: 0 0 1rem auto;
+  gap: 0.5rem;
+}
+.table-button-container button {
+  padding: 0.8rem;
+  border-radius: 5px;
+  background-color: var(--babyblue);
+  font-size: 1.2rem;
+}
+
+.table-container {
+  width: 100%;
+  background-color: white;
+  border: 2px solid var(--babyblue);
+}
+.table-container th {
+  padding: 0.5rem;
+  background-color: var(--babyblue);
+}
+.table-container td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 2px solid var(--babyblue);
+}
+
+/* 데이터 추가 모달 */
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 60%;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+}
+.modal-header i {
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.modal-body div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.modal-body label {
+  font-weight: 700;
+}
+.modal-body button {
+  padding: 0.8rem;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}

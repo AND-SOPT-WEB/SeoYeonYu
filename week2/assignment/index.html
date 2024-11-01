@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Admin</title>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header>
+      <i class="fa-solid fa-bars"></i>
+      <h1>회원 관리 페이지</h1>
+      <span>AND SOPT WEB YB 유서연</span>
+    </header>
+
+    <!-- 필터링 섹션 -->
+    <section class="filtering-section">
+      <form id="filtering-form">
+        <ul>
+          <li class="filtering-input-box">
+            <label for="nameKor">이름</label>
+            <input id="nameKor" placeholder="이름을 입력하세요" autocomplete="off" />
+          </li>
+          <li class="filtering-input-box">
+            <label for="nameEng">영문 이름</label>
+            <input id="nameEng" placeholder="영문 이름을 입력하세요" autocomplete="off" />
+          </li>
+          <li>
+            <div class="filtering-input-box">
+              <label for="github">Github ID</label>
+              <input id="github" placeholder="Github ID를 입력하세요" autocomplete="off" />
+            </div>
+            <div class="filtering-input-box">
+              <label for="gender">성별</label>
+              <select id="gender">
+                <option selected hidden>성별 선택</option>
+                <option value="male">남자</option>
+                <option value="female">여자</option>
+              </select>
+            </div>
+            <div class="filtering-input-box">
+              <label for="role">역할</label>
+              <select id="role">
+                <option selected hidden>OB / YB 선택</option>
+                <option value="OB">OB</option>
+                <option value="YB">YB</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <div class="filtering-input-box">
+              <label for="firstGroup">1주차 금잔디조</label>
+              <input
+                type="number"
+                id="firstGroup"
+                placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+              />
+            </div>
+            <div class="filtering-input-box">
+              <label for="secondGroup">2주차 금잔디조</label>
+              <input
+                type="number"
+                id="secondGroup"
+                placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+              />
+            </div>
+          </li>
+        </ul>
+
+        <div class="filtering-btn-container">
+          <button type="reset">초기화</button>
+          <button type="submit">검색</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 테이블 섹션 -->
+    <section>
+      <div class="table-button-container">
+        <button id="del-btn">선택 삭제</button>
+        <button id="add-btn">추가</button>
+      </div>
+
+      <table class="table-container">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="select-btn" /></th>
+            <th>이름</th>
+            <th>영문 이름</th>
+            <th>Github</th>
+            <th>성별</th>
+            <th>역할</th>
+            <th>1주차 금잔디</th>
+            <th>2주차 금잔디</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </section>
+
+    <!-- 데이터 추가 모달 -->
+    <div class="modal-background">
+      <div class="modal">
+        <div class="modal-header">
+          <h5>새 멤버 추가</h5>
+          <i id="close-btn" class="fa-solid fa-xmark"></i>
+        </div>
+
+        <form class="modal-body">
+          <div>
+            <label for="modalNameKor">이름</label>
+            <input id="modalNameKor" placeholder="이름을 입력하세요" autocomplete="off" />
+            <label for="modalNameEng">영문 이름</label>
+            <input id="modalNameEng" placeholder="영문 이름을 입력하세요" autocomplete="off" />
+            <label for="modalGithub">Github ID</label>
+            <input id="modalGithub" placeholder="Github ID를 입력하세요" autocomplete="off" />
+
+            <label for="modalGender">성별</label>
+            <select id="modalGender">
+              <option selected disabled>성별 선택</option>
+              <option value="male">남성</option>
+              <option value="female">여성</option>
+            </select>
+
+            <label for="modalRole">역할</label>
+            <select id="modalRole">
+              <option selected disabled>OB / YB 선택</option>
+              <option value="OB">OB</option>
+              <option value="YB">YB</option>
+            </select>
+
+            <label for="modalFirstGroup">1주차 금잔디조</label>
+            <input
+              type="number"
+              id="modalFirstGroup"
+              placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+            />
+            <label for="modalSecondGroup">2주차 금잔디조</label>
+            <input
+              type="number"
+              id="modalSecondGroup"
+              placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+            />
+          </div>
+          <button id="submit-btn">추가</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+    <script type="module" src="data.js"></script>
+  </body>
+</html>
