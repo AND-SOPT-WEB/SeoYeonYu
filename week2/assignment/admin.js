@@ -19,6 +19,11 @@ function renderTable(data = membersData) {
         `;
     tableBody.appendChild(tr);
   });
+
+  const checkboxes = tableBody.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", updateSelectBtn);
+  });
 }
 
 // 데이터 필터링하기
@@ -74,11 +79,15 @@ const selectBtn = document.getElementById("select-btn");
 selectBtn.addEventListener("click", selectAll);
 
 function selectAll() {
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
+  const checkboxes = tableBody.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
     checkbox.checked = selectBtn.checked;
   });
+}
+
+function updateSelectBtn() {
+  const checkboxes = tableBody.querySelectorAll('input[type="checkbox"]');
+  selectBtn.checked = Array.from(checkboxes).every((checkbox) => checkbox.checked);
 }
 
 // 선택 삭제하기
@@ -88,12 +97,11 @@ delBtn.addEventListener("click", deleteRow);
 function deleteRow() {
   const checkboxes = tableBody.querySelectorAll('input[type="checkbox"]');
 
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked) {
-      const id = parseInt(checkbox.getAttribute("id"));
-      membersData = membersData.filter((item) => item.id !== id);
-    }
-  });
+  const checkedIds = Array.from(checkboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => parseInt(checkbox.getAttribute("id")));
+
+  membersData = membersData.filter((item) => !checkedIds.includes(item.id));
 
   localStorage.setItem("membersData", JSON.stringify(membersData));
   selectBtn.checked = false;

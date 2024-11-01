@@ -55,9 +55,8 @@ section {
 }
 
 .filtering-section label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  align-content: center;
+  text-align: center;
   width: 10rem;
   background-color: whitesmoke;
   flex-shrink: 0;
@@ -129,6 +128,9 @@ section {
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   width: 60%;
   padding: 2.5rem;
   background-color: white;
@@ -145,7 +147,11 @@ section {
 }
 
 .modal-body {
-  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.modal-body div {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -154,8 +160,8 @@ section {
   font-weight: 700;
 }
 .modal-body button {
-  margin-top: 1.5rem;
   padding: 0.8rem;
+  width: 100%;
   background-color: black;
   color: white;
   border-radius: 5px;
