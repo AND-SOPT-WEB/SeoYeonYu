@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import TopBar from "./components/TopBar";
+import Game from "./components/Game";
 import Ranking from "./components/Ranking";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   return (
     <>
       <TopBar {...{ selectedButton, setSelectedButton, level, setLevel }} />
-      {selectedButton === "게임" || <Ranking />}
+      {selectedButton === "게임" ? <Game level={level} /> : <Ranking />}
     </>
   );
 }

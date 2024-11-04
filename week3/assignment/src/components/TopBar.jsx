@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 const TopBar = ({ selectedButton, setSelectedButton, level, setLevel }) => {
@@ -6,7 +5,8 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel }) => {
   const levels = [1, 2, 3];
 
   const handleLevelChange = (e) => {
-    setLevel(e.target.value);
+    setLevel(Number(e.target.value));
+    console.log(e.target.value);
   };
 
   return (
