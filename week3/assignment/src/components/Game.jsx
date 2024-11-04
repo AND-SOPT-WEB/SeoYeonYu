@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
-const Game = ({ level }) => {
+const Game = ({ level, startGame, endGame, gameState }) => {
   const gridNumber = level + 2;
   const halfNumber = gridNumber ** 2;
   const maxNumber = halfNumber * 2;
@@ -22,6 +22,9 @@ const Game = ({ level }) => {
 
   const handleNumberClick = (num, index) => {
     if (num === nextNumber) {
+      if (num === 1) startGame();
+      if (nextNumber === maxNumber) endGame();
+
       setNextNumber((prev) => prev + 1);
       const updatedNumber = newNumbers.length > 0 ? newNumbers.pop() : null;
       setNumbers((prev) => {

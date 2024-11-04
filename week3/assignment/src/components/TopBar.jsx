@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
+import Timer from "./Timer";
 
-const TopBar = ({ selectedButton, setSelectedButton, level, setLevel }) => {
+const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, resetGame, gameState }) => {
   const buttons = ["게임", "랭킹"];
   const levels = [1, 2, 3];
 
   const handleLevelChange = (e) => {
     setLevel(Number(e.target.value));
-    console.log(e.target.value);
+    resetGame();
   };
 
   return (
@@ -34,6 +35,7 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel }) => {
                 </option>
               ))}
             </LevelSelect>
+            <Timer gameState={gameState} />
           </Section>
         )}
       </SectionContainer>
