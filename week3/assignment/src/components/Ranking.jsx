@@ -107,7 +107,7 @@ const RankingTableRow = styled.tr`
   display: grid;
   grid-template-columns: 4fr 1fr 2fr;
 
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     background-color: #f9f9f9;
   }
 `;
