@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import styled from "@emotion/styled";
+import ModalPortal from "./ModalPortal";
+import AlertModal from "./AlertModal";
 
 const Timer = ({ gameState }) => {
   const [time, setTime] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const formattedTime = time.toFixed(2);
 
   const saveData = (time) => {
     const gameData = {
       timestamp: new Date(),
       level: 1,
-      time: time.toFixed(2),
+      time: formattedTime,
     };
 
     const rankingData = JSON.parse(localStorage.getItem("rankingData")) || [];
@@ -26,7 +31,7 @@ const Timer = ({ gameState }) => {
       clearInterval(timerId);
       setTime(0);
       if (!gameState.reset) {
-        alert(`게임 끝! 기록: ${time.toFixed(2)}초`);
+        setIsModalOpen(true);
         saveData(time);
       }
     }
@@ -34,7 +39,14 @@ const Timer = ({ gameState }) => {
     return () => clearInterval(timerId);
   }, [gameState.start, time]);
 
-  return <Time>{time.toFixed(2)}</Time>;
+  return (
+    <>
+      <Time>{time.toFixed(2)}</Time>
+      <ModalPortal>
+        {isModalOpen && <AlertModal time={formattedTime} onClose={() => setIsModalOpen(false)} />}
+      </ModalPortal>
+    </>
+  );
 };
 
 export default Timer;
