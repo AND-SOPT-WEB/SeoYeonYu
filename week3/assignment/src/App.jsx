@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import TopBar from "./components/TopBar";
+import Ranking from "./components/Ranking";
 
 function App() {
   const [selectedButton, setSelectedButton] = useState("게임");
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <TopBar {...{ selectedButton, setSelectedButton, level, setLevel }} />
+      {selectedButton === "게임" || <Ranking />}
     </>
   );
 }
