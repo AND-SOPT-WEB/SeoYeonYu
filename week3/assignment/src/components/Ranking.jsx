@@ -7,7 +7,7 @@ const Ranking = () => {
   useEffect(() => {
     const rankingData = JSON.parse(localStorage.getItem("rankingData")) || [];
     rankingData.sort((a, b) => {
-      b.level === a.level ? parseFloat(a.time) - parseFloat(b.time) : b.level - a.level;
+      return b.level === a.level ? parseFloat(a.time) - parseFloat(b.time) : b.level - a.level;
     });
     setRankings(rankingData);
   }, []);
@@ -33,11 +33,11 @@ const Ranking = () => {
           </RankingTableRow>
         </thead>
         <tbody>
-          {rankings.map((record, index) => (
+          {rankings.map((data, index) => (
             <RankingTableRow key={index}>
-              <td>{record.timestamp}</td>
-              <td>Level {record.level}</td>
-              <td>{record.time} 초</td>
+              <td>{new Date(data.timestamp).toLocaleString()}</td>
+              <td>Level {data.level}</td>
+              <td>{data.time} 초</td>
             </RankingTableRow>
           ))}
         </tbody>

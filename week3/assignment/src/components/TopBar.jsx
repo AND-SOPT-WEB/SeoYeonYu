@@ -35,7 +35,7 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, resetGame,
                 </option>
               ))}
             </LevelSelect>
-            <Timer gameState={gameState} />
+            <Timer {...{ level, gameState }} />
           </Section>
         )}
       </SectionContainer>

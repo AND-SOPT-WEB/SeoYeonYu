@@ -5,7 +5,7 @@ const AlertModal = ({ time, onClose }) => {
     <Background>
       <Modal>
         <span>게임 끝!</span>
-        <span>기록 {time}초</span>
+        <span>기록 {time.toFixed(2)}초</span>
         <button onClick={onClose}>닫기</button>
       </Modal>
     </Background>

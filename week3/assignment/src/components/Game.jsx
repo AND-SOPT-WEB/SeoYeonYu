@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
-const Game = ({ level, startGame, endGame, gameState }) => {
+const Game = ({ level, startGame, endGame }) => {
   const gridNumber = level + 2;
   const halfNumber = gridNumber ** 2;
   const maxNumber = halfNumber * 2;
@@ -11,19 +11,22 @@ const Game = ({ level, startGame, endGame, gameState }) => {
   const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
   const [nextNumber, setNextNumber] = useState(1);
-  const [numbers, setNumbers] = useState(shuffleArray(initialNumbers));
-  const [newNumbers, setNewNumbers] = useState(shuffleArray(additionalNumbers));
+  const [numbers, setNumbers] = useState(() => shuffleArray([...initialNumbers]));
+  const [newNumbers, setNewNumbers] = useState(() => shuffleArray([...additionalNumbers]));
 
   useEffect(() => {
     setNextNumber(1);
-    setNumbers(shuffleArray(initialNumbers));
-    setNewNumbers(shuffleArray(additionalNumbers));
+    setNumbers(shuffleArray([...initialNumbers]));
+    setNewNumbers(shuffleArray([...additionalNumbers]));
   }, [level]);
 
   const handleNumberClick = (num, index) => {
     if (num === nextNumber) {
       if (num === 1) startGame();
-      if (nextNumber === maxNumber) endGame();
+      if (nextNumber === maxNumber) {
+        endGame();
+        return;
+      }
 
       setNextNumber((prev) => prev + 1);
       const updatedNumber = newNumbers.length > 0 ? newNumbers.pop() : null;
