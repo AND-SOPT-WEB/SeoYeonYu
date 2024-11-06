@@ -8,6 +8,7 @@ const Timer = ({ level, gameState, resetGame }) => {
   const [finalTime, setFinalTime] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // 게임 결과 로컬스토리지에 저장
   const saveData = (time) => {
     const gameData = {
       timestamp: new Date().toISOString(),
@@ -20,6 +21,7 @@ const Timer = ({ level, gameState, resetGame }) => {
     localStorage.setItem("rankingData", JSON.stringify(rankingData));
   };
 
+  // 타이머 시작 / 종료 관리
   useEffect(() => {
     let timerId;
     if (gameState.start) {
@@ -27,6 +29,7 @@ const Timer = ({ level, gameState, resetGame }) => {
         setTime((prev) => prev + 0.01);
       }, 10);
     } else if (!gameState.start && time !== 0) {
+      // 게임을 reset하는 경우에는 결과를 저장하지 않음
       if (!gameState.reset) {
         saveData(time);
         setFinalTime(time);

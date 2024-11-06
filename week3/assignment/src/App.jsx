@@ -7,6 +7,8 @@ import Ranking from "./components/Ranking";
 function App() {
   const [selectedButton, setSelectedButton] = useState("게임");
   const [level, setLevel] = useState(1);
+
+  // 게임 진행 상태 관리
   const [gameState, setGameState] = useState({ start: false, reset: false });
 
   const startGame = () => {

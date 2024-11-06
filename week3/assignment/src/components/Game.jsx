@@ -5,7 +5,10 @@ const Game = ({ level, startGame, endGame, resetState }) => {
   const gridNumber = level + 2;
   const halfNumber = gridNumber ** 2;
   const maxNumber = halfNumber * 2;
+
+  // 첫 화면에 띄워질 숫자 배열
   const initialNumbers = Array.from({ length: halfNumber }, (_, i) => i + 1);
+  // 다음 화면에 띄워질 숫자 배열
   const additionalNumbers = Array.from({ length: halfNumber }, (_, i) => i + halfNumber + 1);
 
   const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
@@ -14,6 +17,7 @@ const Game = ({ level, startGame, endGame, resetState }) => {
   const [numbers, setNumbers] = useState(() => shuffleArray(initialNumbers));
   const [newNumbers, setNewNumbers] = useState(() => shuffleArray(additionalNumbers));
 
+  // gamestate.reset 상태가 변화하면 게임 초기화
   useEffect(() => {
     setNextNumber(1);
     setNumbers(shuffleArray(initialNumbers));
@@ -21,6 +25,7 @@ const Game = ({ level, startGame, endGame, resetState }) => {
     endGame();
   }, [resetState]);
 
+  // 숫자 카드 클릭 관리 함수
   const handleNumberClick = (num, index) => {
     if (num === nextNumber) {
       if (num === 1) startGame();

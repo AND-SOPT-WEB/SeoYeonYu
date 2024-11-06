@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 const Ranking = () => {
   const [rankings, setRankings] = useState([]);
 
+  // 게임 랭킹 데이터 설정 (로컬스토리지에서 게임 결과 가져와서 정렬 후 띄우기)
   useEffect(() => {
     const rankingData = JSON.parse(localStorage.getItem("rankingData")) || [];
     rankingData.sort((a, b) => {
@@ -12,6 +13,7 @@ const Ranking = () => {
     setRankings(rankingData);
   }, []);
 
+  // 게임 랭킹 초기화
   const resetRankingData = () => {
     localStorage.removeItem("rankingData");
     setRankings([]);

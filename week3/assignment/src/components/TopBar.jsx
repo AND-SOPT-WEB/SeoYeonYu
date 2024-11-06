@@ -5,6 +5,7 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, gameState,
   const buttons = ["게임", "랭킹"];
   const levels = [1, 2, 3];
 
+  // 레벨 변경 함수 (레벨 변경 시 게임 초기화)
   const handleLevelChange = (e) => {
     setLevel(Number(e.target.value));
     resetGame();
