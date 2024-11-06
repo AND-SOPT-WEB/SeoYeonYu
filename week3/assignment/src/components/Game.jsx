@@ -19,7 +19,7 @@ const Game = ({ level, startGame, endGame, resetState }) => {
     setNumbers(shuffleArray(initialNumbers));
     setNewNumbers(shuffleArray(additionalNumbers));
     endGame();
-  }, [level, resetState]);
+  }, [resetState]);
 
   const handleNumberClick = (num, index) => {
     if (num === nextNumber) {
