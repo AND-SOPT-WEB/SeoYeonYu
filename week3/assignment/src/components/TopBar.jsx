@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Timer from "./Timer";
 
-const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, resetGame, gameState }) => {
+const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, gameState, resetGame }) => {
   const buttons = ["게임", "랭킹"];
   const levels = [1, 2, 3];
 
@@ -35,7 +35,7 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, resetGame,
                 </option>
               ))}
             </LevelSelect>
-            <Timer {...{ level, gameState }} />
+            <Timer {...{ level, gameState, resetGame }} />
           </Section>
         )}
       </SectionContainer>

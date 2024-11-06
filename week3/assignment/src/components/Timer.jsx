@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import ModalPortal from "./ModalPortal";
 import AlertModal from "./AlertModal";
 
-const Timer = ({ level, gameState }) => {
+const Timer = ({ level, gameState, resetGame }) => {
   const [time, setTime] = useState(0);
   const [finalTime, setFinalTime] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,22 +28,30 @@ const Timer = ({ level, gameState }) => {
       }, 10);
     } else if (!gameState.start && time !== 0) {
       if (!gameState.reset) {
+        saveData(time);
         setFinalTime(time);
         setIsModalOpen(true);
-        saveData(time);
       }
       clearInterval(timerId);
       setTime(0);
     }
 
     return () => clearInterval(timerId);
-  }, [gameState.start, gameState.reset, time]);
+  }, [gameState.start, time]);
 
   return (
     <>
       <Time>{time.toFixed(2)}</Time>
       <ModalPortal>
-        {isModalOpen && <AlertModal time={finalTime} onClose={() => setIsModalOpen(false)} />}
+        {isModalOpen && (
+          <AlertModal
+            time={finalTime}
+            onClose={() => {
+              setIsModalOpen(false);
+              resetGame();
+            }}
+          />
+        )}
       </ModalPortal>
     </>
   );

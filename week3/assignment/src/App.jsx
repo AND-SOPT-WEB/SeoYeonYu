@@ -23,8 +23,12 @@ function App() {
 
   return (
     <>
-      <TopBar {...{ selectedButton, setSelectedButton, level, setLevel, resetGame, gameState }} />
-      {selectedButton === "게임" ? <Game {...{ level, startGame, endGame }} /> : <Ranking />}
+      <TopBar {...{ selectedButton, setSelectedButton, level, setLevel, gameState, resetGame }} />
+      {selectedButton === "게임" ? (
+        <Game {...{ level, startGame, endGame }} resetState={gameState.reset} />
+      ) : (
+        <Ranking />
+      )}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
-const Game = ({ level, startGame, endGame }) => {
+const Game = ({ level, startGame, endGame, resetState }) => {
   const gridNumber = level + 2;
   const halfNumber = gridNumber ** 2;
   const maxNumber = halfNumber * 2;
@@ -18,7 +18,8 @@ const Game = ({ level, startGame, endGame }) => {
     setNextNumber(1);
     setNumbers(shuffleArray([...initialNumbers]));
     setNewNumbers(shuffleArray([...additionalNumbers]));
-  }, [level]);
+    endGame();
+  }, [level, resetState]);
 
   const handleNumberClick = (num, index) => {
     if (num === nextNumber) {
