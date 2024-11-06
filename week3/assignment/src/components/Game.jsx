@@ -11,13 +11,13 @@ const Game = ({ level, startGame, endGame, resetState }) => {
   const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
   const [nextNumber, setNextNumber] = useState(1);
-  const [numbers, setNumbers] = useState(() => shuffleArray([...initialNumbers]));
-  const [newNumbers, setNewNumbers] = useState(() => shuffleArray([...additionalNumbers]));
+  const [numbers, setNumbers] = useState(() => shuffleArray(initialNumbers));
+  const [newNumbers, setNewNumbers] = useState(() => shuffleArray(additionalNumbers));
 
   useEffect(() => {
     setNextNumber(1);
-    setNumbers(shuffleArray([...initialNumbers]));
-    setNewNumbers(shuffleArray([...additionalNumbers]));
+    setNumbers(shuffleArray(initialNumbers));
+    setNewNumbers(shuffleArray(additionalNumbers));
     endGame();
   }, [level, resetState]);
 
