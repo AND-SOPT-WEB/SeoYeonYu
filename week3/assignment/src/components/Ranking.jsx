@@ -58,8 +58,8 @@ const Container = styled.section`
   align-items: center;
   width: 70%;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
 `;
 
 const RankingHeader = styled.div`
@@ -81,7 +81,7 @@ const RankingHeader = styled.div`
     padding: 0.5rem 1rem;
     background-color: var(--red);
     color: white;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     cursor: pointer;
   }
 `;
@@ -92,7 +92,7 @@ const RankingTable = styled.table`
 
   th {
     padding: 0.75rem;
-    border: 1px solid whitesmoke;
+    border: 0.1rem solid whitesmoke;
     background-color: var(--red);
     font-weight: 700;
     text-align: start;
@@ -100,7 +100,7 @@ const RankingTable = styled.table`
 
   td {
     padding: 0.75rem;
-    border: 1px solid whitesmoke;
+    border: 0.1rem solid whitesmoke;
     color: black;
   }
 `;

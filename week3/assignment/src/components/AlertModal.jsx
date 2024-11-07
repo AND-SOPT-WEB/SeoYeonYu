@@ -14,7 +14,7 @@ const AlertModal = ({ time, onClose }) => {
 
 export default AlertModal;
 
-const Background = styled.dialog`
+const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@ const Background = styled.dialog`
   background: transparent;
 `;
 
-const Modal = styled.div`
+const Modal = styled.dialog`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,7 @@ const Modal = styled.div`
   gap: 1rem;
   width: 16rem;
   height: 12rem;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background: white;
 
   span {
@@ -45,8 +45,9 @@ const Modal = styled.div`
   button {
     font-size: 1.2rem;
     padding: 0.6rem 1.2rem;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     background-color: var(--red);
     color: white;
+    cursor: pointer;
   }
 `;

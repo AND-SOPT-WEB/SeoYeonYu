@@ -1,15 +1,9 @@
 import styled from "@emotion/styled";
 import Timer from "./Timer";
 
-const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, gameState, resetGame }) => {
+const TopBar = ({ selectedButton, handleButton, level, handleLevel, gameState, resetGame }) => {
   const buttons = ["게임", "랭킹"];
   const levels = [1, 2, 3];
-
-  // 레벨 변경 함수 (레벨 변경 시 게임 초기화)
-  const handleLevelChange = (e) => {
-    setLevel(Number(e.target.value));
-    resetGame();
-  };
 
   return (
     <Container>
@@ -20,7 +14,7 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, gameState,
             <Button
               key={text}
               isSelected={selectedButton === text}
-              onClick={() => setSelectedButton(text)}
+              onClick={() => handleButton(text)}
             >
               {text}
             </Button>
@@ -29,7 +23,7 @@ const TopBar = ({ selectedButton, setSelectedButton, level, setLevel, gameState,
 
         {selectedButton === "게임" && (
           <Section>
-            <LevelSelect value={level} onChange={handleLevelChange}>
+            <LevelSelect value={level} onChange={handleLevel}>
               {levels.map((num) => (
                 <option key={num} value={num}>
                   Level {num}
@@ -79,11 +73,11 @@ const Button = styled.button`
   background-color: ${({ isSelected }) => (isSelected ? "var(--orange)" : "transparent")};
   color: white;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   cursor: pointer;
 `;
 
 const LevelSelect = styled.select`
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 0.8rem;
 `;

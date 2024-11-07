@@ -23,9 +23,20 @@ function App() {
     setGameState({ start: false, reset: true });
   };
 
+  // 게임 / 랭킹 변경 함수
+  const handleButton = (text) => {
+    setSelectedButton(text);
+  };
+
+  // 레벨 변경 함수 (레벨 변경 시 게임 초기화)
+  const handleLevel = (e) => {
+    setLevel(Number(e.target.value));
+    resetGame();
+  };
+
   return (
     <>
-      <TopBar {...{ selectedButton, setSelectedButton, level, setLevel, gameState, resetGame }} />
+      <TopBar {...{ selectedButton, handleButton, level, handleLevel, gameState, resetGame }} />
       {selectedButton === "게임" ? (
         <Game {...{ level, startGame, endGame }} resetState={gameState.reset} />
       ) : (
