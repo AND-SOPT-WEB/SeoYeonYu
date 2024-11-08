@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
+import ModalPortal from "./ModalPortal";
+import AlertModal from "./AlertModal";
 
-const Game = ({ level, startGame, endGame, resetState }) => {
+const Game = ({ level, startGame, endGame, finalTime, resetState }) => {
   const gridNumber = level + 2;
   const halfNumber = gridNumber ** 2;
   const maxNumber = halfNumber * 2;
@@ -17,11 +19,18 @@ const Game = ({ level, startGame, endGame, resetState }) => {
   const [numbers, setNumbers] = useState(shuffleArray(initialNumbers));
   const [newNumbers, setNewNumbers] = useState(shuffleArray(additionalNumbers));
 
-  // gamestate.reset 상태가 변화하면 게임 초기화
-  useEffect(() => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 게임 초기화 함수
+  const initGame = () => {
     setNextNumber(1);
     setNumbers(shuffleArray(initialNumbers));
     setNewNumbers(shuffleArray(additionalNumbers));
+  };
+
+  // gamestate.reset 상태가 변화하면 게임 초기화
+  useEffect(() => {
+    initGame();
     endGame();
   }, [resetState]);
 
@@ -31,6 +40,7 @@ const Game = ({ level, startGame, endGame, resetState }) => {
       if (num === 1) startGame();
       if (nextNumber === maxNumber) {
         endGame();
+        setIsModalOpen(true);
         return;
       }
 
@@ -65,6 +75,19 @@ const Game = ({ level, startGame, endGame, resetState }) => {
           )
         )}
       </Grid>
+
+      {/* 게임 종료 모달 */}
+      <ModalPortal>
+        {isModalOpen && (
+          <AlertModal
+            time={finalTime}
+            onClose={() => {
+              setIsModalOpen(false);
+              initGame();
+            }}
+          />
+        )}
+      </ModalPortal>
     </Container>
   );
 };

@@ -7,6 +7,7 @@ import Ranking from "./components/Ranking";
 function App() {
   const [selectedButton, setSelectedButton] = useState("게임");
   const [level, setLevel] = useState(1);
+  const [finalTime, setFinalTime] = useState(0);
 
   // 게임 진행 상태 관리
   const [gameState, setGameState] = useState({ start: false, reset: false });
@@ -34,11 +35,16 @@ function App() {
     resetGame();
   };
 
+  // 게임 기록 시간 관리 함수
+  const saveFinalTime = (time) => {
+    setFinalTime(time);
+  };
+
   return (
     <>
-      <TopBar {...{ selectedButton, handleButton, level, handleLevel, gameState, resetGame }} />
+      <TopBar {...{ selectedButton, handleButton, level, handleLevel, gameState, saveFinalTime }} />
       {selectedButton === "게임" ? (
-        <Game {...{ level, startGame, endGame }} resetState={gameState.reset} />
+        <Game {...{ level, startGame, endGame, finalTime }} resetState={gameState.reset} />
       ) : (
         <Ranking />
       )}
