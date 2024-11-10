@@ -15,9 +15,12 @@ const globalStyle = css`
   }
 
   body {
+    display: flex;
+    justify-content: center;
     background-color: whitesmoke;
   }
 
+  input,
   button {
     border: none;
     outline: none;

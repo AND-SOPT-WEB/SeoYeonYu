@@ -2,17 +2,20 @@ import { Theme } from "@emotion/react";
 
 const color = {
   black: "#141414",
+  gray: "#A9A9A9",
+  white: "#FFFFFF",
+  green: "#6B8A7A",
+  deepGreen: "#254336",
 };
 
 const fontSize = {
-  small: "1rem",
+  small: "1.25rem",
   medium: "1.5rem",
-  large: "2rem",
+  large: "2.4rem",
 };
 
 const fontWeight = {
-  regular: 400,
-  medium: 500,
+  medium: 600,
   bold: 700,
 };
 
