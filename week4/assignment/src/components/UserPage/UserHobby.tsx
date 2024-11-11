@@ -11,6 +11,7 @@ const UserHobby = () => {
       <Label htmlFor="password">다른 사람들의 취미</Label>
       <Input id="password" placeholder="사용자 번호" type="text" />
       <Button>검색</Button>
+      <HobbyText>1번 사용자의 취미 : 독서</HobbyText>
     </Container>
   );
 };

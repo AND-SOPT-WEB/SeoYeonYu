@@ -41,7 +41,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 40%;
   display: flex;
   flex-direction: column;

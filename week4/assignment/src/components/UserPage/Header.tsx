@@ -1,15 +1,18 @@
 import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
 
-const Header = () => {
+type HeaderProps = {
+  handleSection: (text: "hobby" | "info") => void;
+};
+
+const Header = ({ handleSection }: HeaderProps) => {
   return (
     <Container>
       <Nav>
         <h1>마이페이지</h1>
-        <span>취미</span>
-        <span>내 정보</span>
+        <span onClick={() => handleSection("hobby")}>취미</span>
+        <span onClick={() => handleSection("info")}>내 정보</span>
       </Nav>
-
       <span>로그아웃</span>
     </Container>
   );
