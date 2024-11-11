@@ -6,6 +6,7 @@ const color = {
   white: "#FFFFFF",
   green: "#6B8A7A",
   deepGreen: "#254336",
+  error: "red",
 };
 
 const fontSize = {

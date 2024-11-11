@@ -28,4 +28,9 @@ export const Button = styled.button`
   &:hover {
     background-color: ${Theme.color.deepGreen};
   }
+
+  &:disabled {
+    border: 1px solid ${Theme.color.gray};
+    background-color: ${Theme.color.gray};
+  }
 `;
