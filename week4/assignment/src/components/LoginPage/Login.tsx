@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
 import { Title, Input, Button, Container } from "../../styles/common";
@@ -11,7 +12,7 @@ const Login = () => {
         <Input placeholder="비밀번호" type="password" />
         <Button>로그인</Button>
       </LoginForm>
-      <SignupLink>회원가입</SignupLink>
+      <SignupLink to="/signup">회원가입</SignupLink>
     </Container>
   );
 };
@@ -22,7 +23,9 @@ const LoginForm = styled.form`
   gap: 1rem;
 `;
 
-const SignupLink = styled.a`
+const SignupLink = styled(Link)`
+  margin: 0 auto;
+  width: fit-content;
   font-size: ${Theme.fontSize.small};
   text-decoration: underline;
   color: ${Theme.color.gray};

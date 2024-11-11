@@ -1,9 +1,12 @@
 import { useState, ChangeEvent } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
 import { Title, Label, Input, Button, Container } from "../../styles/common";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [step, setStep] = useState<number>(1);
 
   const [name, setName] = useState<string>("");
@@ -48,6 +51,10 @@ const SignUp = () => {
     } else if (step === 2 && !passwordError && !confirmPasswordError) {
       setStep(3);
     }
+  };
+
+  const signUp = () => {
+    navigate("/");
   };
 
   return (
@@ -112,13 +119,15 @@ const SignUp = () => {
               onChange={handleChange}
               autoComplete="off"
             />
-            <Button disabled={!hobby}>회원가입</Button>
+            <Button onClick={signUp} disabled={!hobby}>
+              회원가입
+            </Button>
           </>
         )}
       </SignUpForm>
 
       <LoginLink>
-        이미 회원이신가요? <b>로그인</b>
+        이미 회원이신가요? <Link to="/">로그인</Link>
       </LoginLink>
     </Container>
   );
@@ -136,12 +145,12 @@ const Error = styled.p`
   color: ${Theme.color.error};
 `;
 
-const LoginLink = styled.a`
+const LoginLink = styled.span`
   font-size: ${Theme.fontSize.small};
   font-weight: ${Theme.fontWeight.medium};
   color: ${Theme.color.black};
 
-  b {
+  a {
     color: ${Theme.color.green};
     cursor: pointer;
   }

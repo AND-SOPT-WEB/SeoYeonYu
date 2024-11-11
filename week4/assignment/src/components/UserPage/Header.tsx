@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
 
@@ -6,6 +7,12 @@ type HeaderProps = {
 };
 
 const Header = ({ handleSection }: HeaderProps) => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate("/");
+  };
+
   return (
     <Container>
       <Nav>
@@ -13,7 +20,7 @@ const Header = ({ handleSection }: HeaderProps) => {
         <span onClick={() => handleSection("hobby")}>취미</span>
         <span onClick={() => handleSection("info")}>내 정보</span>
       </Nav>
-      <span>로그아웃</span>
+      <span onClick={logout}>로그아웃</span>
     </Container>
   );
 };

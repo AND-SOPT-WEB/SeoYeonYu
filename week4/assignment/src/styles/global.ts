@@ -25,6 +25,10 @@ const globalStyle = css`
     border: none;
     outline: none;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default globalStyle;
