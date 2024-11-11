@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
-import { Title, Input, Button } from "../../styles/common";
+import { Title, Input, Button, Container } from "../../styles/common";
 
 const Login = () => {
   return (
@@ -15,15 +15,6 @@ const Login = () => {
     </Container>
   );
 };
-
-const Container = styled.div`
-  margin-top: 20%;
-  display: flex;
-  flex-direction: column;
-  width: 30rem;
-  gap: 2rem;
-  text-align: center;
-`;
 
 const LoginForm = styled.form`
   display: flex;

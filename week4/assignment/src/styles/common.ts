@@ -7,6 +7,12 @@ export const Title = styled.h1`
   color: ${Theme.color.black};
 `;
 
+export const Label = styled.label`
+  font-size: ${Theme.fontSize.medium};
+  font-weight: ${Theme.fontWeight.medium};
+  text-align: start;
+`;
+
 export const Input = styled.input`
   padding: 0.8rem;
   border: 1px solid ${Theme.color.green};
@@ -33,4 +39,13 @@ export const Button = styled.button`
     border: 1px solid ${Theme.color.gray};
     background-color: ${Theme.color.gray};
   }
+`;
+
+export const Container = styled.div`
+  margin-top: 40%;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  gap: 2rem;
+  text-align: center;
 `;

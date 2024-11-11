@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
-import { Title, Input, Button } from "../../styles/common";
+import { Title, Label, Input, Button, Container } from "../../styles/common";
 
 const SignUp = () => {
   const [step, setStep] = useState<number>(1);
@@ -124,25 +124,10 @@ const SignUp = () => {
   );
 };
 
-const Container = styled.div`
-  margin-top: 20%;
-  display: flex;
-  flex-direction: column;
-  width: 30rem;
-  gap: 2rem;
-  text-align: center;
-`;
-
 const SignUpForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-`;
-
-const Label = styled.label`
-  font-size: ${Theme.fontSize.medium};
-  font-weight: ${Theme.fontWeight.medium};
-  text-align: start;
 `;
 
 const Error = styled.p`

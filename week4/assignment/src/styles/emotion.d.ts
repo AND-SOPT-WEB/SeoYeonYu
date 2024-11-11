@@ -4,7 +4,7 @@ import { ColorType, FontSizeType, FontWeightType } from "./theme";
 declare module "@emotion/react" {
   export interface Theme {
     color: ColorType;
-    fontSize: FontType;
+    fontSize: FontSizeType;
     fontWeight: FontWeightType;
   }
 }
