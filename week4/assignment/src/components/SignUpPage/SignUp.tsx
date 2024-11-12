@@ -19,6 +19,8 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState<boolean>(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState<boolean>(false);
 
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
   // 회원가입 입력값 관리 함수
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -88,13 +90,22 @@ const SignUp = () => {
         {step === 2 && (
           <>
             <Label htmlFor="password">비밀번호</Label>
-            <Input
-              id="password"
-              placeholder="비밀번호를 입력해주세요"
-              type="password"
-              value={password}
-              onChange={handleChange}
-            />
+            <InputContainer>
+              <input
+                id="password"
+                placeholder="비밀번호를 입력해주세요"
+                type={isVisible ? "text" : "password"}
+                value={password}
+                onChange={handleChange}
+              />
+              <ShowIcon onClick={() => setIsVisible(!isVisible)}>
+                {isVisible ? (
+                  <i className="fa-regular fa-eye"></i>
+                ) : (
+                  <i className="fa-regular fa-eye-slash"></i>
+                )}
+              </ShowIcon>
+            </InputContainer>
             <Label htmlFor="confirmPassword">비밀번호 확인</Label>
             <Input
               id="confirmPassword"
@@ -162,4 +173,23 @@ const LoginLink = styled.span`
     color: ${Theme.color.green};
     cursor: pointer;
   }
+`;
+
+const InputContainer = styled.div`
+  padding: 0.8rem;
+  display: flex;
+  width: 100%;
+  background: ${Theme.color.white};
+  border: 1px solid ${Theme.color.green};
+  border-radius: 4px;
+  font-size: ${Theme.fontSize.medium};
+
+  input {
+    width: 100%;
+  }
+`;
+
+const ShowIcon = styled.div`
+  color: ${Theme.color.gray};
+  cursor: pointer;
 `;
