@@ -4,9 +4,10 @@ import styled from "@emotion/styled";
 import Theme from "../../styles/theme";
 import { Title, Label, Input, Button, Container } from "../../styles/common";
 
+import { PostSignUp } from "../../apis/auth";
+
 const SignUp = () => {
   const navigate = useNavigate();
-
   const [step, setStep] = useState<number>(1);
 
   const [name, setName] = useState<string>("");
@@ -18,6 +19,7 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState<boolean>(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState<boolean>(false);
 
+  // 회원가입 입력값 관리 함수
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
 
@@ -45,6 +47,7 @@ const SignUp = () => {
     }
   };
 
+  // 회원가입 단계 관리 함수
   const handleStep = () => {
     if (step === 1 && name) {
       setStep(2);
@@ -53,14 +56,17 @@ const SignUp = () => {
     }
   };
 
-  const signUp = () => {
+  // 회원가입 함수
+  const signUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await PostSignUp(name, password, hobby);
     navigate("/");
   };
 
   return (
     <Container>
       <Title>회원가입</Title>
-      <SignUpForm>
+      <SignUpForm onSubmit={signUp}>
         {step === 1 && (
           <>
             <Label htmlFor="name">이름</Label>
@@ -133,6 +139,8 @@ const SignUp = () => {
   );
 };
 
+export default SignUp;
+
 const SignUpForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -155,5 +163,3 @@ const LoginLink = styled.span`
     cursor: pointer;
   }
 `;
-
-export default SignUp;

@@ -9,7 +9,9 @@ type HeaderProps = {
 const Header = ({ handleSection }: HeaderProps) => {
   const navigate = useNavigate();
 
+  // 로그아웃 함수
   const logout = () => {
+    localStorage.removeItem("token");
     navigate("/");
   };
 
