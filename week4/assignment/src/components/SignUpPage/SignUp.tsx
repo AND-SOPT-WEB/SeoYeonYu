@@ -18,6 +18,7 @@ const SignUp = () => {
   const [nameError, setNameError] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<boolean>(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState<boolean>(false);
+  const [hobbyError, setHobbyError] = useState<boolean>(false);
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -46,6 +47,7 @@ const SignUp = () => {
     // 취미 입력
     if (id === "hobby") {
       setHobby(value);
+      setHobbyError(value.length > 8);
     }
   };
 
@@ -136,7 +138,8 @@ const SignUp = () => {
               onChange={handleChange}
               autoComplete="off"
             />
-            <Button onClick={signUp} disabled={!hobby}>
+            {hobbyError && <Error>취미는 8자 이하로 입력해주세요.</Error>}
+            <Button onClick={signUp} disabled={!hobby || hobbyError}>
               회원가입
             </Button>
           </>
