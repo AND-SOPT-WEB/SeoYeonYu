@@ -120,7 +120,7 @@ const SignUp = () => {
             {confirmPasswordError && <Error>비밀번호가 일치하지 않습니다.</Error>}
             <Button
               onClick={handleStep}
-              disabled={!password || passwordError || confirmPasswordError}
+              disabled={!password || !confirmPassword || passwordError || confirmPasswordError}
             >
               다음
             </Button>
