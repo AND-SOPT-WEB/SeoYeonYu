@@ -1,43 +1,42 @@
 import styled from "@emotion/styled";
-import Theme from "./theme";
 
 export const Title = styled.h1`
-  font-size: ${Theme.fontSize.large};
-  font-weight: ${Theme.fontWeight.bold};
-  color: ${Theme.color.black};
+  font-size: ${({ theme }) => theme.fontSize.large};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.color.black};
 `;
 
 export const Label = styled.label`
-  font-size: ${Theme.fontSize.medium};
-  font-weight: ${Theme.fontWeight.medium};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-align: start;
 `;
 
 export const Input = styled.input`
   padding: 0.8rem;
-  border: 1px solid ${Theme.color.green};
+  border: 1px solid ${({ theme }) => theme.color.green};
   border-radius: 4px;
-  font-size: ${Theme.fontSize.medium};
+  font-size: ${({ theme }) => theme.fontSize.medium};
 `;
 
 export const Button = styled.button`
   padding: 0.8rem;
-  background-color: ${Theme.color.green};
-  border: 1px solid ${Theme.color.green};
+  background-color: ${({ theme }) => theme.color.green};
+  border: 1px solid ${({ theme }) => theme.color.green};
   border-radius: 4px;
-  font-size: ${Theme.fontSize.medium};
-  font-weight: ${Theme.fontWeight.medium};
-  color: ${Theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: ${({ theme }) => theme.color.white};
   cursor: pointer;
   transition: 0.5s;
 
   &:hover {
-    background-color: ${Theme.color.deepGreen};
+    background-color: ${({ theme }) => theme.color.deepGreen};
   }
 
   &:disabled {
-    border: 1px solid ${Theme.color.gray};
-    background-color: ${Theme.color.gray};
+    border: 1px solid ${({ theme }) => theme.color.gray};
+    background-color: ${({ theme }) => theme.color.gray};
   }
 `;
 

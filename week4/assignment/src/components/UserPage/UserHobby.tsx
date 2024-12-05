@@ -1,6 +1,5 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import styled from "@emotion/styled";
-import Theme from "../../styles/theme";
 import { Title, Label, Input, Button, Container } from "../../styles/common";
 
 import { GetMyHobby, GetUserHobby } from "../../apis/auth";
@@ -66,8 +65,8 @@ const UserHobby = () => {
 export default UserHobby;
 
 const HobbyText = styled.span`
-  font-size: ${Theme.fontSize.medium};
-  font-weight: ${Theme.fontWeight.medium};
-  color: ${Theme.color.green};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: ${({ theme }) => theme.color.green};
   text-align: start;
 `;

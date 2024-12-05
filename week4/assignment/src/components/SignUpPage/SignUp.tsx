@@ -1,7 +1,6 @@
 import { useState, ChangeEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import Theme from "../../styles/theme";
 import { Title, Label, Input, Button, Container } from "../../styles/common";
 
 import { PostSignUp } from "../../apis/auth";
@@ -162,18 +161,18 @@ const SignUpForm = styled.form`
 `;
 
 const Error = styled.p`
-  font-size: ${Theme.fontSize.small};
+  font-size: ${({ theme }) => theme.fontSize.small};
   text-align: start;
-  color: ${Theme.color.error};
+  color: ${({ theme }) => theme.color.error};
 `;
 
 const LoginLink = styled.span`
-  font-size: ${Theme.fontSize.small};
-  font-weight: ${Theme.fontWeight.medium};
-  color: ${Theme.color.black};
+  font-size: ${({ theme }) => theme.fontSize.small};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: ${({ theme }) => theme.color.black};
 
   a {
-    color: ${Theme.color.green};
+    color: ${({ theme }) => theme.color.green};
     cursor: pointer;
   }
 `;
@@ -182,10 +181,10 @@ const InputContainer = styled.div`
   padding: 0.8rem;
   display: flex;
   width: 100%;
-  background: ${Theme.color.white};
-  border: 1px solid ${Theme.color.green};
+  background: ${({ theme }) => theme.color.white};
+  border: 1px solid ${({ theme }) => theme.color.green};
   border-radius: 4px;
-  font-size: ${Theme.fontSize.medium};
+  font-size: ${({ theme }) => theme.fontSize.medium};
 
   input {
     width: 100%;
@@ -193,6 +192,6 @@ const InputContainer = styled.div`
 `;
 
 const ShowIcon = styled.div`
-  color: ${Theme.color.gray};
+  color: ${({ theme }) => theme.color.gray};
   cursor: pointer;
 `;

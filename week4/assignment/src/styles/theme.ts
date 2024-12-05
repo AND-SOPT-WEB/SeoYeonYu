@@ -1,5 +1,3 @@
-import { Theme } from "@emotion/react";
-
 const color = {
   black: "#141414",
   gray: "#A9A9A9",
@@ -24,10 +22,6 @@ export type ColorType = typeof color;
 export type FontSizeType = typeof fontSize;
 export type FontWeightType = typeof fontWeight;
 
-const theme: Theme = {
-  color,
-  fontSize,
-  fontWeight,
-};
+const theme = { color, fontSize, fontWeight };
 
 export default theme;

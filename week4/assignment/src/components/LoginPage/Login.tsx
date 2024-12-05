@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import Theme from "../../styles/theme";
 import { Title, Input, Button, Container } from "../../styles/common";
 
 import { PostLogin } from "../../apis/auth";
@@ -53,12 +52,12 @@ const LoginForm = styled.form`
 const SignupLink = styled(Link)`
   margin: 0 auto;
   width: fit-content;
-  font-size: ${Theme.fontSize.small};
+  font-size: ${({ theme }) => theme.fontSize.small};
   text-decoration: underline;
-  color: ${Theme.color.gray};
+  color: ${({ theme }) => theme.color.gray};
   cursor: pointer;
 
   &:hover {
-    color: ${Theme.color.black};
+    color: ${({ theme }) => theme.color.black};
   }
 `;

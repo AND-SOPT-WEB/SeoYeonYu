@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
-import Theme from "../../styles/theme";
 
 type HeaderProps = {
   handleSection: (text: "hobby" | "info") => void;
@@ -37,9 +36,9 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background: ${Theme.color.deepGreen};
-  font-size: ${Theme.fontSize.medium};
-  color: ${Theme.color.white};
+  background: ${({ theme }) => theme.color.deepGreen};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  color: ${({ theme }) => theme.color.white};
 
   span {
     cursor: pointer;
@@ -51,7 +50,7 @@ const Nav = styled.nav`
   gap: 1.8rem;
 
   h1 {
-    font-weight: ${Theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
     cursor: pointer;
   }
 `;
