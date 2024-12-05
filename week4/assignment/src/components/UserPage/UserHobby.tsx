@@ -5,8 +5,8 @@ import { Title, Label, Input, Button, Container } from "../../styles/common";
 import { GetMyHobby, GetUserHobby } from "../../apis/auth";
 
 const UserHobby = () => {
-  const [myHobby, setMyHobby] = useState<string>("");
-  const [userNo, setUserNo] = useState<string>("");
+  const [myHobby, setMyHobby] = useState("");
+  const [userNo, setUserNo] = useState("");
   const [searchResult, setSearchResult] = useState<{ userNo: string; hobby: string }>({
     userNo: "",
     hobby: "",

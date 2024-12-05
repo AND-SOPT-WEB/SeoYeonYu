@@ -7,19 +7,19 @@ import { PostSignUp } from "../../apis/auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState<number>(1);
+  const [step, setStep] = useState(1);
 
-  const [name, setName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [hobby, setHobby] = useState<string>("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [hobby, setHobby] = useState("");
 
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [passwordError, setPasswordError] = useState<boolean>(false);
-  const [confirmPasswordError, setConfirmPasswordError] = useState<boolean>(false);
-  const [hobbyError, setHobbyError] = useState<boolean>(false);
+  const [nameError, setNameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [hobbyError, setHobbyError] = useState(false);
 
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   // 회원가입 입력값 관리 함수
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -70,79 +70,91 @@ const SignUp = () => {
     <Container>
       <Title>회원가입</Title>
       <SignUpForm onSubmit={signUp}>
-        {step === 1 && (
-          <>
-            <Label htmlFor="name">이름</Label>
-            <Input
-              id="name"
-              placeholder="사용자 이름을 입력해주세요"
-              type="text"
-              value={name}
-              onChange={handleChange}
-              autoComplete="off"
-            />
-            {nameError && <Error>이름를 8자 이하로 입력해주세요.</Error>}
-            <Button onClick={handleStep} disabled={!name || nameError}>
-              다음
-            </Button>
-          </>
-        )}
+        {(() => {
+          switch (step) {
+            case 1:
+              return (
+                <>
+                  <Label htmlFor="name">이름</Label>
+                  <Input
+                    id="name"
+                    placeholder="사용자 이름을 입력해주세요"
+                    type="text"
+                    value={name}
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
+                  {nameError && <Error>이름을 8자 이하로 입력해주세요.</Error>}
+                  <Button onClick={handleStep} disabled={!name || nameError}>
+                    다음
+                  </Button>
+                </>
+              );
 
-        {step === 2 && (
-          <>
-            <Label htmlFor="password">비밀번호</Label>
-            <InputContainer>
-              <input
-                id="password"
-                placeholder="비밀번호를 입력해주세요"
-                type={isVisible ? "text" : "password"}
-                value={password}
-                onChange={handleChange}
-              />
-              <ShowIcon onClick={() => setIsVisible(!isVisible)}>
-                {isVisible ? (
-                  <i className="fa-regular fa-eye"></i>
-                ) : (
-                  <i className="fa-regular fa-eye-slash"></i>
-                )}
-              </ShowIcon>
-            </InputContainer>
-            <Label htmlFor="confirmPassword">비밀번호 확인</Label>
-            <Input
-              id="confirmPassword"
-              placeholder="비밀번호 확인"
-              type="password"
-              value={confirmPassword}
-              onChange={handleChange}
-            />
-            {passwordError && <Error>비밀번호를 8자 이하로 입력해주세요.</Error>}
-            {confirmPasswordError && <Error>비밀번호가 일치하지 않습니다.</Error>}
-            <Button
-              onClick={handleStep}
-              disabled={!password || !confirmPassword || passwordError || confirmPasswordError}
-            >
-              다음
-            </Button>
-          </>
-        )}
+            case 2:
+              return (
+                <>
+                  <Label htmlFor="password">비밀번호</Label>
+                  <InputContainer>
+                    <input
+                      id="password"
+                      placeholder="비밀번호를 입력해주세요"
+                      type={isVisible ? "text" : "password"}
+                      value={password}
+                      onChange={handleChange}
+                    />
+                    <ShowIcon onClick={() => setIsVisible(!isVisible)}>
+                      {isVisible ? (
+                        <i className="fa-regular fa-eye"></i>
+                      ) : (
+                        <i className="fa-regular fa-eye-slash"></i>
+                      )}
+                    </ShowIcon>
+                  </InputContainer>
+                  <Label htmlFor="confirmPassword">비밀번호 확인</Label>
+                  <Input
+                    id="confirmPassword"
+                    placeholder="비밀번호 확인"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={handleChange}
+                  />
+                  {passwordError && <Error>비밀번호는 8자 이하로 입력해주세요.</Error>}
+                  {confirmPasswordError && <Error>비밀번호가 일치하지 않습니다.</Error>}
+                  <Button
+                    onClick={handleStep}
+                    disabled={
+                      !password || !confirmPassword || passwordError || confirmPasswordError
+                    }
+                  >
+                    다음
+                  </Button>
+                </>
+              );
 
-        {step === 3 && (
-          <>
-            <Label htmlFor="hobby">취미</Label>
-            <Input
-              id="hobby"
-              placeholder="취미를 입력해주세요"
-              type="text"
-              value={hobby}
-              onChange={handleChange}
-              autoComplete="off"
-            />
-            {hobbyError && <Error>취미는 8자 이하로 입력해주세요.</Error>}
-            <Button onClick={signUp} disabled={!hobby || hobbyError}>
-              회원가입
-            </Button>
-          </>
-        )}
+            case 3:
+              return (
+                <>
+                  <Label htmlFor="hobby">취미</Label>
+                  <Input
+                    id="hobby"
+                    placeholder="취미를 입력해주세요"
+                    type="text"
+                    value={hobby}
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
+                  {hobbyError && <Error>취미는 8자 이하로 입력해주세요.</Error>}
+                  <Button onClick={signUp} disabled={!hobby || hobbyError}>
+                    회원가입
+                  </Button>
+                </>
+              );
+
+            default:
+              return null;
+          }
+        })()}
       </SignUpForm>
 
       <LoginLink>

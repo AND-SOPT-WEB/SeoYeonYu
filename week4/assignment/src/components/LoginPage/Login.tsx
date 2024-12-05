@@ -7,8 +7,8 @@ import { PostLogin } from "../../apis/auth";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
 
   // 로그인 함수
   const login = async (e: React.FormEvent) => {

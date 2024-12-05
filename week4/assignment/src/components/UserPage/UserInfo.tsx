@@ -4,8 +4,8 @@ import { Title, Label, Input, Button, Container } from "../../styles/common";
 import { PutUserInfo } from "../../apis/auth";
 
 const UserInfo = () => {
-  const [newPassword, setNewPassword] = useState<string>("");
-  const [newHobby, setNewHobby] = useState<string>("");
+  const [newPassword, setNewPassword] = useState("");
+  const [newHobby, setNewHobby] = useState("");
 
   // 변경할 비밀번호 & 취미 입력값 관리 함수
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
